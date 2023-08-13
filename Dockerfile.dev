@@ -1,0 +1,23 @@
+# Use Node version 16.13.0 as a parent image
+FROM node:16.13.0 AS build
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Change the ownership of the /app directory
+RUN chown -R node:node /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install app dependencies in the container
+RUN npm install
+
+# Copy the rest of the application code into the container
+COPY . .
+
+# Expose port 3000 for the app
+EXPOSE 3000
+
+# This will be the default command
+CMD ["npm", "start"]
