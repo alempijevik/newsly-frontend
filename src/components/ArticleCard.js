@@ -15,13 +15,15 @@ function ArticleCard(props) {
   return (
     <Box mt={5} mb={5}>
       <Card>
-        {article.urlToImage && <CardMedia
-          component="img"
-          height="200"
-          image={article.urlToImage}
-          alt={article.title}
-          loading="lazy"
-        />}
+        {article.urlToImage && (
+          <CardMedia
+            component="img"
+            height="200"
+            image={article.urlToImage}
+            alt={article.title}
+            loading="lazy"
+          />
+        )}
         <CardContent>
           <Typography variant="h5" component="div">
             {article.title}

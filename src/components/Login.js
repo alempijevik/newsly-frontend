@@ -12,7 +12,10 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post("/api/login", { email, password });
+      const response = await axiosInstance.post("/api/login", {
+        email,
+        password,
+      });
       localStorage.setItem("authToken", response.data.access_token);
       setIsAuthenticated(true);
     } catch (error) {

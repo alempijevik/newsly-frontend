@@ -13,7 +13,7 @@ const Home = () => {
       const response = await axiosInstance.get(`/api/articles`, {
         params: filters,
       });
-      console.log(response.data.articles)
+      console.log(response.data.articles);
       setArticles(response.data.articles);
       setLoading(false);
     } catch (error) {

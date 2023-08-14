@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, CssBaseline, Container } from "@mui/material";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -14,12 +14,10 @@ import { useAuth } from "./contexts/AuthContext";
 
 function RoutesWrapper() {
   const { setIsAuthenticated } = useAuth();
-  const [authToken, setAuthToken] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (token) {
-      setAuthToken(token);
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);

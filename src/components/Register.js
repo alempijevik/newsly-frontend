@@ -38,8 +38,8 @@ function Register() {
     if (Object.keys(newErrors).length === 0) {
       console.log("Submitting data:", formData);
       try {
-        const response = await axiosInstance.post('/api/register', formData)
-        localStorage.setItem('authToken', response.data.access_token);
+        const response = await axiosInstance.post("/api/register", formData);
+        localStorage.setItem("authToken", response.data.access_token);
         setIsAuthenticated(true);
       } catch (error) {
         console.error("Error:", error);
